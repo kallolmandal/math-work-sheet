@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ResultpageComponent implements OnInit, AfterViewInit {
   @StorageProperty({ storage: 'Session' }) worksheet: Worksheet;
-  private displayReady: boolean = false;
+  private displayReady = false;
   context: CanvasRenderingContext2D;
   @ViewChild('myCanvas') myCanvas;
 

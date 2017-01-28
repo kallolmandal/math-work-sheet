@@ -16,16 +16,16 @@ import { AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
   @Input() question: Question;
   @Input() currentIndex: number;
-  rectW: number = 100;
-  rectH: number = 100;
-  rectColor: string = 'black';
+  rectW = 100;
+  rectH = 100;
+  rectColor = 'black';
   context: CanvasRenderingContext2D;
   clickX: any[] = [];
   clickY: any[] = [];
   clickDrag: any[] = [];
   paint: boolean;
-  convertedText: string = 'data';
-  offset: number = 0;
+  convertedText = 'data';
+  offset = 0;
 
 
   @ViewChild('myCanvas') myCanvas;

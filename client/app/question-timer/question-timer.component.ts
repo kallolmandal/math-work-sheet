@@ -13,8 +13,8 @@ import { WorksheetService } from '../services/work-sheet.service';
 export class QuestionTimerComponent implements OnInit, OnDestroy {
   subs: Subscription;
   ticks = 0;
-  timeWarning: number = 15;
-  blink: boolean = false;
+  timeWarning = 15;
+  blink = false;
   allocatedTime: number;
   constructor(private _router: Router, private _worksheetService: WorksheetService) { }
 

@@ -13,7 +13,7 @@ import { StorageProperty, LocalStorage, SessionStorage } from 'h5webstorage';
 export class WorksheetComponent implements OnInit, AfterViewInit {
 
   private worksheetList: any[];
-  private displayReady: boolean = false;
+  private displayReady = false;
 
   constructor(private _worksheetService: WorksheetService, private sessionStorage: SessionStorage, private _router: Router) { }
 
