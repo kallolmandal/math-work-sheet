@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": "",
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "client",
+    "e2e",
+    "public"
+  ]
+}

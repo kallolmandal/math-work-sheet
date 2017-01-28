@@ -1,0 +1,14 @@
+<div class="dashboard-component">
+  <canvas #myCanvas (touchleave)="mouseleave($event)" (mouseleave)="mouseleave($event)" (touchend)="mouseup($event)" (mouseup)="mouseup($event)"
+    (touchstart)="mousedown($event)" (mousedown)="mousedown($event)" (touchmove)="mousemove($event)" (mousemove)="mousemove($event)"
+    width="400" height="400"></canvas>
+    <div class="text-center">
+      <input type="button" (click)="ClearText()" class="btn btn-info" value=" Clear ">
+    </div>
+    <div class="text-center">
+      <input [disabled]="this.currentIndex < 1" type="button" (click)="goPrevious()" class="btn btn-info" value=" << ">
+      <input *ngIf="!shouldShowSave()"  type="button" (click)="goNext()" class="btn btn-info" value=" >> ">
+      <input *ngIf="shouldShowSave()"  type="button" (click)="save()" class="btn btn-info" value=" save ">
+      
+    </div>
+</div>

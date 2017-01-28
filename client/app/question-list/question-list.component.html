@@ -1,0 +1,7 @@
+<div class="lab-order-list" *ngIf='questionList && questionList.length'>
+  <div class='lab-order-list-item col-xs-2' *ngFor="let question of questionList; let i=index" >
+    <div >
+    <app-question-preview [question_index] ='i' [question] ='question'> </app-question-preview>
+    </div>
+  </div>
+</div>

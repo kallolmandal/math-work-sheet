@@ -1,0 +1,11 @@
+.dashboard-component {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    
+}
+
+canvas {
+    background: #eeeff1;
+}
+

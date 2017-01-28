@@ -1,0 +1,21 @@
+{
+  "name": "worksheet application",
+  "description": "Worksheet application",
+  "main": "client/index.html",
+  "license": "NONE",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1",
+    "font-awesome": "^4.7.0",
+    "webcomponentsjs": "^0.7.23",
+    "underscore": "^1.8.3"  
+  }
+}

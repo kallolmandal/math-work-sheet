@@ -1,0 +1,14 @@
+<div>
+  <div class="question-detail-header">
+    <div class="text-center"> 
+      <div>Question {{currentIndex + 1}} </div>
+      <app-question-timer style="display: inline-block"> </app-question-timer>
+    </div>
+  </div>
+
+  <div class="question-detail-canvas">
+    <app-question-canvas [currentIndex] ="currentIndex" [question] ="question"> </app-question-canvas>
+  </div>
+
+</div>
+
