@@ -13,6 +13,7 @@ export class ServerApp {
 
   constructor() {
     this._app = express();
+    this._app.set('port', (process.env.PORT || 5000));
   }
 
   private setupAuthentication() {
@@ -72,12 +73,12 @@ export class ServerApp {
    */
   public startServer() {
     let self = this;
-
-    this._app.listen(3001, function () {
+    console.log('port number is ' + this._app.get('port'));
+    this._app.listen(this._app.get('port'), function () {
       console.log(
         '%s application is now listening on port: %d',
         'Workshet appl',
-        3001
+        self._app.get('port')
       );
     });
   }
