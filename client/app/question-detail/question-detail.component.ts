@@ -10,7 +10,7 @@ import { WorksheetService } from '../services/work-sheet.service';
 })
 export class QuestionDetailComponent implements OnInit {
   question: Question;
-  currentIndex: number;
+  currentIndex: number; 
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _worksheetService: WorksheetService) { }
   ngOnInit() {
