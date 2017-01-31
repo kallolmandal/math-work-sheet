@@ -23,6 +23,7 @@ import { QuestionListComponent } from './question-list/question-list.component';
 import { QuestionTimerComponent } from './question-timer/question-timer.component';
 import { TimerPipe } from './timer.pipe';
 import { ResultpageComponent } from './resultpage/resultpage.component';
+import { ResultReportComponent } from './result-report/result-report.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,8 @@ import { ResultpageComponent } from './resultpage/resultpage.component';
     TimerPipe,
 
     ResultpageComponent,
+    
+    ResultReportComponent
     // Add polymer elements here
     // e.g. PolymerElement("paper-card"),
   ],

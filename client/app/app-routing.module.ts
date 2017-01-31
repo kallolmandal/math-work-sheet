@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WorksheetComponent } from './worksheet/worksheet.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
 import { ResultpageComponent } from './resultpage/resultpage.component';
+import { ResultReportComponent } from './result-report/result-report.component';
 
 
 const _routes: Routes = [
@@ -18,7 +19,10 @@ const _routes: Routes = [
         path: 'result',
         component: ResultpageComponent,
       },
-
+      {
+        path: 'result-report',
+        component: ResultReportComponent
+      },
       {
         path: 'question/:index',
         component: QuestionDetailComponent

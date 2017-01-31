@@ -4,14 +4,22 @@ import { BaseController } from './base.controller';
 
 import { Worksheet } from '../../../shared/models/worksheet';
 
+import { WorksheetResultService } from '../../services/work-sheet-result-service';
+
+
 export class WorksheetApiController extends BaseController {
 
   constructor(req: express.Request) {
     super(req);
   }
-
-  save(name: string, imageDataUrl: string) {
-    //   new WorksheetService().save(name, imageDataUrl);
+  get() {
+    return WorksheetResultService.getResult();
   }
 
+  save(name: string, timeTaken:number, imageDataUrl: string) {
+    WorksheetResultService.saveResult(name, timeTaken, imageDataUrl);
+  }
+  update(worksheetId: string, score: string) {
+    WorksheetResultService.saveScore(worksheetId, score);
+  }
 }

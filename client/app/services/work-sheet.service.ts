@@ -65,11 +65,33 @@ export class WorksheetService extends BaseService {
         }
 
     }
-    saveWorkSheet(name: string, imageDataUrl: string) {
-        this._http.post(this._apiUrl, { 'name': name, 'data': imageDataUrl })
+    saveWorkSheet(name: string, timeTaken:number, imageDataUrl: string) {
+        // this._http.post(this._apiUrl, { 'name': name, 'data': imageDataUrl.replace('data:image/png;base64,', '') })
+        //     .toPromise()
+        //     .then(response => console.log('success'))
+        //     .catch(this.errorFunction);
+          console.log('saving image ' + imageDataUrl);
+
+            this._http.post(this._apiUrl, { 'name': name, 'timeTaken':timeTaken, 'data': imageDataUrl })
             .toPromise()
             .then(response => console.log('success'))
             .catch(this.errorFunction);
+
+    }
+    updateWorkSheet(worksheetId, score) {
+            this._http.put(this._apiUrl, { 'worksheetId': worksheetId, 'score': score })
+            .toPromise()
+            .then(response => console.log('success'))
+            .catch(this.errorFunction);
+
+    }
+
+    getResult() {
+        return this._http.get(this._apiUrl)
+            .toPromise()
+            .then(response => response.json().data as any)
+            .catch(this.errorFunction);
+
     }
     errorFunction(err) {
         console.log(err);

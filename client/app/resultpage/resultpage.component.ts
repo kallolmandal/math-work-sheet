@@ -28,8 +28,8 @@ export class ResultpageComponent implements OnInit, AfterViewInit {
 
     let context = this.context;
     let counter = 0;
-    context.canvas.width = 2000;
-    context.canvas.height = 2000;
+    context.canvas.width = 750;
+    context.canvas.height = 1000;
     this.worksheet.questions.forEach(element => {
       if (element.imageUrl) {
         let img = new Image();
@@ -48,7 +48,7 @@ export class ResultpageComponent implements OnInit, AfterViewInit {
   saveWorksheet() {
     let imgdata = this.context.canvas.toDataURL().replace('data:image/png;base64,', '');
     console.log('image data from client' + imgdata);
-    this._worksheetService.saveWorkSheet(this.worksheet.name, imgdata);
+    this._worksheetService.saveWorkSheet(this.worksheet.name,this.worksheet.timeTaken, imgdata);
   }
 
 

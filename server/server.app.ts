@@ -6,6 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as serveIndex from 'serve-index';
 
 import { WorksheetApiRouter } from './api/routers/work-sheet-api.router';
+import { WorksheetResultService } from './services/work-sheet-result-service';
 
 export class ServerApp {
 
@@ -57,6 +58,10 @@ export class ServerApp {
     this.setupAppRoutes();
   }
 
+  private setupService() {
+    WorksheetResultService.init();
+  }
+
   /**
    * Setup the server
    * @return {void}
@@ -65,6 +70,7 @@ export class ServerApp {
     this.setupAuthentication();
     this.setupSession();
     this.setupRoutes();
+    this.setupService();
   }
 
   /**

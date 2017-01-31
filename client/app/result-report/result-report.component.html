@@ -1,0 +1,19 @@
+<div *ngIf="display">
+    <div *ngFor="let report of allReports">
+        <div class="report-item" *ngIf="!report.isChecked">
+            <img [src]="getImageDateUrl(report.resultImg.data)"  style="width:400px;height:400px;">
+            <input [(ngModel)]='report.score'/>
+            <button type="button" class="btn btn-danger" (click)="updateScore(report)">Save</button>
+            <div>Test Taken on -{{report.date}} </div>
+            <div>Total time taken -{{report.timeTaken}} </div>
+            
+        </div>
+        <div class="report-item" *ngIf="report.isChecked">
+            <div >Score - {{report.score}} </div>
+            <div>Test Taken on -{{report.date}} </div>
+            <div>Total time taken -{{report.timeTaken}} </div>
+        </div>
+
+
+    </div>
+</div>

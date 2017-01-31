@@ -25,6 +25,7 @@ export class QuestionTimerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this._worksheetService.getWorkSheet().timeTaken = this.ticks;
     console.log('unsubscribing timer');
     this.subs.unsubscribe();
   }
@@ -36,7 +37,9 @@ export class QuestionTimerComponent implements OnInit, OnDestroy {
     }
     if (time === this.allocatedTime) {
       this.subs.unsubscribe();
+      this._worksheetService.getWorkSheet().timeTaken = time;
       this._router.navigateByUrl('worksheet/result');
+
     }
   }
 
