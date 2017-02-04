@@ -1,0 +1,26 @@
+<div class="single-report" *ngIf="display">
+  <div class="report-header">
+    <table class="table">
+      <tr>
+        <td> Date </td>
+        <td> todays date </td>
+      </tr>
+
+      <tr>
+        <td> Total tests taken </td>
+        <td> {{allReports.length}} </td>
+      </tr>
+
+    </table>
+
+  </div>
+  <div>
+    <table class="table">
+      <tr *ngFor="let report of allReports">
+        <td>Type </td>
+        <td> {{report.score}}</td>
+        <td> {{report.timeTaken}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

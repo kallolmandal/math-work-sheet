@@ -24,6 +24,8 @@ import { QuestionTimerComponent } from './question-timer/question-timer.componen
 import { TimerPipe } from './timer.pipe';
 import { ResultpageComponent } from './resultpage/resultpage.component';
 import { ResultReportComponent } from './result-report/result-report.component';
+import { ReportDashboardComponent } from './report-dashboard/report-dashboard.component';
+import { SingleReportComponent } from './single-report/single-report.component';
 
 @NgModule({
   imports: [
@@ -49,7 +51,11 @@ import { ResultReportComponent } from './result-report/result-report.component';
 
     ResultpageComponent,
     
-    ResultReportComponent
+    ResultReportComponent,
+    
+    ReportDashboardComponent,
+    
+    SingleReportComponent
     // Add polymer elements here
     // e.g. PolymerElement("paper-card"),
   ],

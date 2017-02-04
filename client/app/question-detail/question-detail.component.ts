@@ -26,7 +26,7 @@ export class QuestionDetailComponent implements OnInit {
   displayWorksheet() {
     this._router.navigateByUrl('worksheet');
 
-  }
+  } 
 
 
 }

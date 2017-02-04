@@ -1,0 +1,13 @@
+.flex-container{
+    display: flex;
+    flex-direction:row;
+}
+.change-arrow {
+    flex-grow: 1;
+    align-self: center;
+}
+.single-report {
+    flex-grow: 4;
+    align-self: center;
+
+}

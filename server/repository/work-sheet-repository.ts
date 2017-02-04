@@ -19,7 +19,7 @@ export namespace WorksheetRepository {
             studentId: studentId,
             timeTaken: timeTaken,
             isChecked: false,
-            score:0,
+            score: 0,
             resultImg: {
                 // data: Buffer.from(imgBlob, 'base64'),
                 data: imgBlob,
@@ -45,8 +45,14 @@ export namespace WorksheetRepository {
         });
     }
 
-    export function get(studentId) {
-        return WorksheetModel.find().exec();
+    export function get(studentId ) {
+        let date: Date = new Date();
+        let nextDate = new Date();
+        nextDate.setDate(date.getDate() + 1);
+        return WorksheetModel.find({ "date": { "$gte": getDate(date), "$lt": getDate(nextDate) } }).exec();
+    }
+    function getDate(date: Date) {
+        return new Date(date.getFullYear(), date.getMonth(), date.getDate());
     }
 
     function initSchema() {
