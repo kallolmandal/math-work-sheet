@@ -5,7 +5,7 @@ import { WorksheetComponent } from './worksheet/worksheet.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
 import { ResultpageComponent } from './resultpage/resultpage.component';
 import { ResultReportComponent } from './result-report/result-report.component';
-import {ReportDashboardComponent} from './report-dashboard/report-dashboard.component';
+import { ReportDashboardComponent } from './report-dashboard/report-dashboard.component';
 
 const _routes: Routes = [
   {
@@ -31,7 +31,7 @@ const _routes: Routes = [
         path: 'report-dashboard',
         component: ReportDashboardComponent
       }
-      
+
     ]
   },
   {

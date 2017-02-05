@@ -45,12 +45,18 @@ export namespace WorksheetRepository {
         });
     }
 
-    export function get(studentId ) {
-        let date: Date = new Date();
+    export function get(studentId, dayOffset: number) {
+        let dateOfReport: Date = new Date();
+        console.log('offset ' + dayOffset);
+        console.log('new Date' + dateOfReport.toDateString());
+        dateOfReport.setDate(dateOfReport.getDate() + dayOffset);
         let nextDate = new Date();
-        nextDate.setDate(date.getDate() + 1);
-        return WorksheetModel.find({ "date": { "$gte": getDate(date), "$lt": getDate(nextDate) } }).exec();
+        nextDate.setDate(dateOfReport.getDate() + 1);
+        console.log('currentDate' + dateOfReport.toDateString());
+        console.log('nextDate' + nextDate.toDateString());
+        return WorksheetModel.find({ 'date': { '$gte': getDate(dateOfReport), '$lt': getDate(nextDate) } }).exec();
     }
+
     function getDate(date: Date) {
         return new Date(date.getFullYear(), date.getMonth(), date.getDate());
     }

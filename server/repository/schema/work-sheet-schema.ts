@@ -6,7 +6,7 @@ export namespace WorksheetSchema {
         date: { type: Date, default: Date.now },
         resultImg: { data: String, contentType: String },
         isChecked: Boolean,
-        score:Number
+        score: Number
 
     };
 }

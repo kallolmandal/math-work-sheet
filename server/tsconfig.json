@@ -5,6 +5,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es5",
+    "sourceMap":true,
     "typeRoots": [
       "node_modules/@types"
     ]

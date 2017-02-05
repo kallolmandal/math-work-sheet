@@ -11,7 +11,7 @@ export namespace WorksheetResultService {
         WorksheetRepository.update(worksheetId, score);
     }
 
-    export function getResult() {
-        return WorksheetRepository.get('1');
+    export function getResult(dayOffset: number) {
+        return WorksheetRepository.get('1', dayOffset);
     }
 }

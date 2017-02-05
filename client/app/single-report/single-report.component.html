@@ -1,26 +1,23 @@
-<div class="single-report" *ngIf="display">
-  <div class="report-header">
-    <table class="table">
-      <tr>
-        <td> Date </td>
-        <td> todays date </td>
-      </tr>
-
-      <tr>
-        <td> Total tests taken </td>
-        <td> {{allReports.length}} </td>
-      </tr>
-
-    </table>
-
-  </div>
+<div class="single-report" *ngIf="allReports">
   <div>
     <table class="table">
-      <tr *ngFor="let report of allReports">
+      <tr (click)="selectReport(report)" (click)="myModal.open()" *ngFor="let report of allReports">
         <td>Type </td>
         <td> {{report.score}}</td>
         <td> {{report.timeTaken}}</td>
       </tr>
     </table>
   </div>
+  <modal #myModal >
+        <modal-header>
+            <h1> Test Report </h1>
+        </modal-header>
+        <modal-content #myModal *ngIf="selectedReport">
+            <img [src]="getImageDateUrl(selectedReport.resultImg.data)"  style="width:400px;height:400px;">
+            <input [(ngModel)]='selectedReport.score'/>
+        </modal-content>
+        <modal-footer #myModal *ngIf="selectedReport">
+            <button class="btn btn-primary"  (click)="myModal.close()">close</button>
+        </modal-footer>
+    </modal>
 </div>

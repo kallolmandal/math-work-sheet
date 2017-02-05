@@ -12,11 +12,11 @@ export class WorksheetApiController extends BaseController {
   constructor(req: express.Request) {
     super(req);
   }
-  get() {
-    return WorksheetResultService.getResult();
+  get(dayOffset: number) {
+    return WorksheetResultService.getResult(dayOffset);
   }
 
-  save(name: string, timeTaken:number, imageDataUrl: string) {
+  save(name: string, timeTaken: number, imageDataUrl: string) {
     WorksheetResultService.saveResult(name, timeTaken, imageDataUrl);
   }
   update(worksheetId: string, score: string) {

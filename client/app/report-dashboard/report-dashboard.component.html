@@ -1,11 +1,11 @@
-<div class="report-dashboard flex-container">
-  <div class="change-arrow text-center">
-    <button type="button" class="btn btn-primary"> << </button>
-  </div>
-  <div class="single-report text-center"> 
-    <app-single-report> </app-single-report>
+      <div class="report-dashboard flex-container">
+      <div class="change-arrow text-center">
+        <button (click)="showPreviousReport()" type="button" class="btn btn-primary"> < Previous </button>
+      </div>
+      <div class="single-report text-center">
+        <app-single-report [allReports]="allReports"> </app-single-report>
+      </div>
+      <div class="change-arrow text-center">
+        <button (click)="showNextReport()" type="button" class="btn btn-primary"> Next > </button>
+      </div>
     </div>
-  <div class="change-arrow text-center">
-  <button type="button" class="btn btn-primary"> >> </button>
-  </div>
-</div>

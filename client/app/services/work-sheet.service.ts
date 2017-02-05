@@ -65,14 +65,14 @@ export class WorksheetService extends BaseService {
         }
 
     }
-    saveWorkSheet(name: string, timeTaken:number, imageDataUrl: string) {
+    saveWorkSheet(name: string, timeTaken: number, imageDataUrl: string) {
         // this._http.post(this._apiUrl, { 'name': name, 'data': imageDataUrl.replace('data:image/png;base64,', '') })
         //     .toPromise()
         //     .then(response => console.log('success'))
         //     .catch(this.errorFunction);
           console.log('saving image ' + imageDataUrl);
 
-            this._http.post(this._apiUrl, { 'name': name, 'timeTaken':timeTaken, 'data': imageDataUrl })
+            this._http.post(this._apiUrl, { 'name': name, 'timeTaken': timeTaken, 'data': imageDataUrl })
             .toPromise()
             .then(response => console.log('success'))
             .catch(this.errorFunction);
@@ -86,8 +86,8 @@ export class WorksheetService extends BaseService {
 
     }
 
-    getResult() {
-        return this._http.get(this._apiUrl)
+    getResult(dayOffset: number) {
+        return this._http.get(this._apiUrl + '/' + dayOffset)
             .toPromise()
             .then(response => response.json().data as any)
             .catch(this.errorFunction);

@@ -48,7 +48,7 @@ export class ResultpageComponent implements OnInit, AfterViewInit {
   saveWorksheet() {
     let imgdata = this.context.canvas.toDataURL().replace('data:image/png;base64,', '');
     console.log('image data from client' + imgdata);
-    this._worksheetService.saveWorkSheet(this.worksheet.name,this.worksheet.timeTaken, imgdata);
+    this._worksheetService.saveWorkSheet(this.worksheet.name, this.worksheet.timeTaken, imgdata);
   }
 
 

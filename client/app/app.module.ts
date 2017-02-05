@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {PolymerElement} from '@vaadin/angular2-polymer';
 import {RouterModule} from '@angular/router';
+import {ModalModule } from 'ng2-modal';
 
 // main application level components
 import {AppRoutingModule} from './app-routing.module';
@@ -26,6 +27,8 @@ import { ResultpageComponent } from './resultpage/resultpage.component';
 import { ResultReportComponent } from './result-report/result-report.component';
 import { ReportDashboardComponent } from './report-dashboard/report-dashboard.component';
 import { SingleReportComponent } from './single-report/single-report.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
+import { PageTitleComponent } from './page-title/page-title.component';
 
 @NgModule({
   imports: [
@@ -33,6 +36,7 @@ import { SingleReportComponent } from './single-report/single-report.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    ModalModule, 
     WebStorageModule
   ],
   declarations: [
@@ -50,12 +54,17 @@ import { SingleReportComponent } from './single-report/single-report.component';
     TimerPipe,
 
     ResultpageComponent,
-    
+
     ResultReportComponent,
-    
+
     ReportDashboardComponent,
-    
-    SingleReportComponent
+
+    SingleReportComponent,
+
+    PageHeaderComponent,
+
+    PageTitleComponent
+
     // Add polymer elements here
     // e.g. PolymerElement("paper-card"),
   ],

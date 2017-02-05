@@ -4,9 +4,11 @@ import { WorksheetApiController } from '../controllers/work-sheet-api.controller
 
 let router = express.Router();
 
-router.get('', function(req, res){
+router.get('/:day', function(req, res){
   let controller = new WorksheetApiController(req);
-  controller.get()
+  let dayOffset = parseInt(req.params.day, 10);
+  console.log('get call ' + dayOffset);
+  controller.get(dayOffset)
             .then(function(result){
              res.json({ data: result });
             });
@@ -15,7 +17,7 @@ router.get('', function(req, res){
 
 router.post('', function (req, res) {
   let controller = new WorksheetApiController(req);
-  controller.save(req.body.name, req.body.timeTaken,req.body.data);
+  controller.save(req.body.name, req.body.timeTaken, req.body.data);
   console.log('post call');
 });
 

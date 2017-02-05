@@ -17,7 +17,7 @@ export class ResultReportComponent implements OnInit {
 
     ngOnInit() {
         let self = this;
-        this._worksheetService.getResult()
+        this._worksheetService.getResult(0)
             .then(data => {
                 self.allReports = data;
                 self.display = true;
@@ -27,7 +27,7 @@ export class ResultReportComponent implements OnInit {
 
     getImageDateUrl(url): string {
         return ('data:image/png;base64,' + url);
-    } 
+    }
 
     updateScore(report) {
         this._worksheetService.updateWorkSheet(report._id, report.score);
