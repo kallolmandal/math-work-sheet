@@ -1,5 +1,6 @@
 export namespace WorksheetSchema {
     export let worksheetResult = {
+        worksheetName: String,
         worksheetId: String,
         studentId: String,
         timeTaken: Number,

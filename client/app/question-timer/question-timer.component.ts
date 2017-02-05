@@ -3,6 +3,8 @@ import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { WorksheetService } from '../services/work-sheet.service';
+import { PagetTitleService } from '../services/page-title.service';
+import { TimerPipe } from '../timer.pipe';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class QuestionTimerComponent implements OnInit, OnDestroy {
   timeWarning = 15;
   blink = false;
   allocatedTime: number;
-  constructor(private _router: Router, private _worksheetService: WorksheetService) { }
+  constructor(private _router: Router, private _worksheetService: WorksheetService, private _pageTitleService: PagetTitleService) { }
 
   ngOnInit() {
     this.allocatedTime = this._worksheetService.getWorkSheet().allocatedTimeInSeconds;

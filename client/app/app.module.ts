@@ -1,21 +1,23 @@
 // angular
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {PolymerElement} from '@vaadin/angular2-polymer';
-import {RouterModule} from '@angular/router';
-import {ModalModule } from 'ng2-modal';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { PolymerElement } from '@vaadin/angular2-polymer';
+import { RouterModule } from '@angular/router';
+import { ModalModule } from 'ng2-modal';
 
 // main application level components
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 // services
-import {WorksheetService} from './services/work-sheet.service';
+import { WorksheetService } from './services/work-sheet.service';
+import { PagetTitleService } from './services/page-title.service';
+
 
 // third party services
-import {WebStorageModule, BROWSER_STORAGE_PROVIDERS} from 'h5webstorage';
+import { WebStorageModule, BROWSER_STORAGE_PROVIDERS } from 'h5webstorage';
 import { WorksheetComponent } from './worksheet/worksheet.component';
 import { QuestionCanvasComponent } from './question-canvas/question-canvas.component';
 import { QuestionPreviewComponent } from './question-preview/question-preview.component';
@@ -36,7 +38,7 @@ import { PageTitleComponent } from './page-title/page-title.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    ModalModule, 
+    ModalModule,
     WebStorageModule
   ],
   declarations: [
@@ -70,6 +72,7 @@ import { PageTitleComponent } from './page-title/page-title.component';
   ],
   providers: [
     WorksheetService,
+    PagetTitleService,
     BROWSER_STORAGE_PROVIDERS
   ],
   bootstrap: [

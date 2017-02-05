@@ -31,6 +31,7 @@ export class ServerApp {
     let rootPath = path.resolve(path.join(__dirname, '..'));
     this._app.use('/bootstrap', express.static(rootPath + '/node_modules/bootstrap/dist/'));
     this._app.use('/font-awesome', express.static(rootPath + '/node_modules/font-awesome/'));
+    this._app.use('/images', express.static(rootPath + '/assets/images/'));
     this._app.use('/result-report', express.static(rootPath + '/server/result/'));
     this._app.use('/result-report', serveIndex(rootPath + '/server/result/'));
 

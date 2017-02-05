@@ -1,23 +1,25 @@
 <div class="single-report" *ngIf="allReports">
-  <div>
-    <table class="table">
-      <tr (click)="selectReport(report)" (click)="myModal.open()" *ngFor="let report of allReports">
-        <td>Type </td>
-        <td> {{report.score}}</td>
-        <td> {{report.timeTaken}}</td>
-      </tr>
-    </table>
-  </div>
-  <modal #myModal >
+    <div>
+        <table class="table table-striped">
+            <tr  (click)="selectReport(report)"  *ngFor="let report of allReports">
+                <td>{{report.worksheetName}} </td>
+                <td> {{report.score}}</td>
+                <td> {{report.timeTaken | timer}}</td>
+                <td *ngIf ="!report.isChecked"> <button class="btn btn-primary" (click)="myModal.open()">check</button> </td>
+            </tr>
+
+        </table>
+    </div>
+    <modal #myModal>
         <modal-header>
             <h1> Test Report </h1>
         </modal-header>
         <modal-content #myModal *ngIf="selectedReport">
-            <img [src]="getImageDateUrl(selectedReport.resultImg.data)"  style="width:400px;height:400px;">
-            <input [(ngModel)]='selectedReport.score'/>
-        </modal-content>
-        <modal-footer #myModal *ngIf="selectedReport">
-            <button class="btn btn-primary"  (click)="myModal.close()">close</button>
-        </modal-footer>
-    </modal>
+            <img [src]="getImageDateUrl(selectedReport.resultImg.data)" style="width:400px;height:400px;">
+<input [(ngModel)]='selectedReport.score' />
+</modal-content>
+<modal-footer #myModal *ngIf="selectedReport">
+    <button class="btn btn-primary" (click)="updateScore(selectedReport)">save</button>
+</modal-footer>
+</modal>
 </div>

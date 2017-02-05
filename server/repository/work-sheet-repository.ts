@@ -15,6 +15,7 @@ export namespace WorksheetRepository {
     }
     export function save(worksheetId, studentId, timeTaken, name, imgBlob) {
         let wsModel = new WorksheetModel({
+            worksheetName: name,
             worksheetId: worksheetId,
             studentId: studentId,
             timeTaken: timeTaken,

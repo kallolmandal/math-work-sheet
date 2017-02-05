@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PagetTitleService } from '../services/page-title.service';
 
 @Component({
   selector: 'app-page-header',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-header.component.css']
 })
 export class PageHeaderComponent implements OnInit {
-
-  constructor() { }
+  private _showHeader: boolean;
+  constructor(private _pageTitleService: PagetTitleService) {
+    _pageTitleService.getpagetTitleShowEvent().subscribe((show) => { this._showHeader = show; });
+  }
 
   ngOnInit() {
   }

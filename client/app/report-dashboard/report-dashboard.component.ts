@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorksheetService } from '../services/work-sheet.service';
+import { PagetTitleService } from '../services/page-title.service';
 
 
 @Component({
@@ -11,11 +12,12 @@ export class ReportDashboardComponent implements OnInit {
   private allReports;
   private display = false;
   private dayOffset = 0;
-  constructor(private _worksheetService: WorksheetService) {
+  constructor(private _worksheetService: WorksheetService, private _pageTitleService: PagetTitleService) {
 
   }
 
   ngOnInit() {
+    this._pageTitleService.getpagetTitleShowEvent().emit(true);
     this.getWorkSheetResult();
   }
 
@@ -32,6 +34,12 @@ export class ReportDashboardComponent implements OnInit {
       .then(data => {
         this.allReports = data;
         this.display = true;
+        if (this.allReports.length > 0) {
+          this._pageTitleService.getpagetTitleChangeEvent().emit(new Date(this.allReports[0].date).toDateString());
+        }else{
+          this._pageTitleService.getpagetTitleChangeEvent().emit('No Tests taken');
+        }
+
       });
 
   }
