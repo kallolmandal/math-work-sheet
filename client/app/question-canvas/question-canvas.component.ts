@@ -2,7 +2,6 @@ import * as tesseract from 'tesseract.js';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Question } from '../../../shared/models/question';
 import { WorksheetService } from '../services/work-sheet.service';
-import { PagetTitleService } from '../services/page-title.service';
 import { Component, Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
@@ -15,9 +14,10 @@ import { AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 })
 
 export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
-  private _backGroundImageUrl = '/images/back-ground.png';
   @Input() question: Question;
   @Input() currentIndex: number;
+  rectW = 100;
+  rectH = 100;
   rectColor = 'black';
   context: CanvasRenderingContext2D;
   clickX: any[] = [];
@@ -30,22 +30,12 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
 
   @ViewChild('myCanvas') myCanvas;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
-    private _worksheetService: WorksheetService, private _pageTitleService: PagetTitleService) {
-    this._pageTitleService.getpagetTitleShowEvent().emit(false);
-  }
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _worksheetService: WorksheetService) { }
 
   ngAfterViewInit() {
     let canvas = this.myCanvas.nativeElement;
     this.context = canvas.getContext('2d');
-    let self = this;
-    let background = new Image();
-    background.src = this._backGroundImageUrl;
-    background.onload = function () {
-      self.tick();
-    };
-
-
+    this.tick();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -67,7 +57,7 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
   drawComparisionQuestion() {
     this.context.fillText(this.question.operand1, 80, 150);
     this.context.fillText(this.question.operand2, 220, 150);
-    // this.context.fillRect(150,80,80,80);
+   // this.context.fillRect(150,80,80,80);
 
   }
   drawNormalQuestion() {
@@ -84,14 +74,11 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
   }
 
   drawQuestion() {
-    let self = this;
     if (!this.question.imageUrl) {
-      let background = new Image();
-      self.context.drawImage(background, 0, 0, 400, 400);
-      if (self.question.operation === '>') {
-        self.drawComparisionQuestion();
+      if (this.question.operation === '>') {
+        this.drawComparisionQuestion();
       } else {
-        self.drawNormalQuestion();
+        this.drawNormalQuestion();
 
       }
 
