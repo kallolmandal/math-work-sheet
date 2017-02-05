@@ -1,11 +1,17 @@
 <div class="single-report" *ngIf="allReports">
     <div>
         <table class="table table-striped">
-            <tr  (click)="selectReport(report)"  *ngFor="let report of allReports">
+            <tr>
+                <th>Name</th>
+                <th>Time Taken</th>
+                <th>Score</th>
+                <th></th>
+            </tr>
+            <tr (click)="selectReport(report)" *ngFor="let report of allReports">
                 <td>{{report.worksheetName}} </td>
-                <td> {{report.score}}</td>
                 <td> {{report.timeTaken | timer}}</td>
-                <td *ngIf ="!report.isChecked"> <button class="btn btn-primary" (click)="myModal.open()">check</button> </td>
+                <td *ngIf="!report.isChecked"> <button class="btn btn-primary" (click)="myModal.open()">check</button> </td>
+                <td *ngIf="report.isChecked"> {{report.score}} </td>
             </tr>
 
         </table>
