@@ -38,7 +38,14 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
   ngAfterViewInit() {
     let canvas = this.myCanvas.nativeElement;
     this.context = canvas.getContext('2d');
-    this.tick();
+    let self = this;
+    let background = new Image();
+    background.src = this._backGroundImageUrl;
+    background.onload = function () {
+      self.tick();
+    };
+
+
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -80,18 +87,13 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
     let self = this;
     if (!this.question.imageUrl) {
       let background = new Image();
-      background.src = this._backGroundImageUrl;
-      background.onload = function () {
-        self.context.drawImage(background, 0, 0, 400, 400);
-        if (self.question.operation === '>') {
-          self.drawComparisionQuestion();
-        } else {
-          self.drawNormalQuestion();
+      self.context.drawImage(background, 0, 0, 400, 400);
+      if (self.question.operation === '>') {
+        self.drawComparisionQuestion();
+      } else {
+        self.drawNormalQuestion();
 
-        }
-      };
-
-
+      }
 
     } else {
       let img = new Image();
