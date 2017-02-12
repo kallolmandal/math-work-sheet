@@ -55,8 +55,21 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
 
   }
   drawComparisionQuestion() {
-    this.context.fillText(this.question.operand1, 80, 150);
-    this.context.fillText(this.question.operand2, 220, 150);
+    this.drawFractionOperand(this.question.operand1, 150);
+    this.drawFractionOperand(this.question.operand2, 220);
+
+  }
+  drawFractionOperand(operand1, leftx) {
+    let array = operand1.split('/');
+    let num = array[0];
+    let denom = array[1];
+    this.context.fillText(num, leftx, 150);
+    this.context.fillText(denom, leftx, 190);
+    this.context.beginPath();
+    this.context.lineWidth = 2;
+    this.context.moveTo(leftx - 10, 155);
+    this.context.lineTo(leftx + 30, 155);
+    this.context.stroke();
 
   }
   drawNormalQuestion() {
