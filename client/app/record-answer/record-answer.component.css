@@ -1,0 +1,10 @@
+.answer-container{
+    display:flex;
+    flex-wrap:wrap;
+    width:500px;
+}
+.answer{
+    min-height: 70px;
+    min-width: 110px;
+    flex:1
+}

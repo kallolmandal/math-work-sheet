@@ -1,0 +1,9 @@
+.answer-mark{
+    min-height: 40px;
+}
+.correct-answer {
+    color:green
+}
+.wrong-answer{
+    color:red;
+}

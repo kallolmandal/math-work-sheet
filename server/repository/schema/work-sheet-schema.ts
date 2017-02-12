@@ -10,4 +10,11 @@ export namespace WorksheetSchema {
         score: Number
 
     };
+    export let worksheetDefinition = {
+        name: String,
+        operand1: String,
+        operand2: String,
+        operation: String,
+        time: Number,
+    };
 }

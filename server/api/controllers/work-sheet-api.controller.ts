@@ -19,7 +19,12 @@ export class WorksheetApiController extends BaseController {
   save(name: string, timeTaken: number, imageDataUrl: string) {
     WorksheetResultService.saveResult(name, timeTaken, imageDataUrl);
   }
+
   update(worksheetId: string, score: string) {
     WorksheetResultService.saveScore(worksheetId, score);
+  }
+
+  getDefinitions() {
+    return WorksheetResultService.getDefinitions();
   }
 }

@@ -8,24 +8,30 @@
                 <th></th>
             </tr>
             <tr (click)="selectReport(report)" *ngFor="let report of allReports">
-                <td>{{report.worksheetName}} </td>
-                <td> {{report.timeTaken | timer}}</td>
-                <td *ngIf="!report.isChecked"> <button class="btn btn-primary" (click)="myModal.open()">check</button> </td>
-                <td *ngIf="report.isChecked"> {{report.score}} </td>
+                <td>{{report.report.worksheetName}} </td>
+                <td> {{report.report.timeTaken | timer}}</td>
+                <td *ngIf="!report.report.isChecked"> <button class="btn btn-primary" (click)="myModal.open()">check</button> </td>
+                <td *ngIf="report.report.isChecked"> {{report.report.score}} </td>
             </tr>
 
         </table>
     </div>
     <modal #myModal>
         <modal-header>
-            <h1> Test Report </h1>
+            <h2> Test Report </h2>
         </modal-header>
         <modal-content #myModal *ngIf="selectedReport">
-            <img [src]="getImageDateUrl(selectedReport.resultImg.data)" style="width:400px;height:400px;">
-<input [(ngModel)]='selectedReport.score' />
-</modal-content>
-<modal-footer #myModal *ngIf="selectedReport">
-    <button class="btn btn-primary" (click)="updateScore(selectedReport)">save</button>
-</modal-footer>
-</modal>
+            <div style="position:relative">
+                <div style="position: absolute; top:5px;left:50px">
+                    <app-record-answer [answers]="selectedReport.answers"> </app-record-answer>
+                </div>
+                <img [src]="getImageDateUrl(selectedReport.report.resultImg.data)" style="width:600px;height:500px;">
+                <div>{{getScore()}}</div>
+
+            </div>
+        </modal-content>
+        <modal-footer #myModal *ngIf="selectedReport">
+            <button class="btn btn-primary" (click)="updateScore()">save</button>
+        </modal-footer>
+    </modal>
 </div>

@@ -4,6 +4,7 @@ import { WorksheetSchema } from './schema/work-sheet-schema';
 export namespace WorksheetRepository {
     let connectionString = 'mongodb://user1:user1@ds055574.mlab.com:55574/worksheet-result';
     let WorksheetModel;
+    let WorksheetDefinitionModel;
     export function init() {
         mongoose.connect(connectionString);
         let db = mongoose.connection;
@@ -57,13 +58,21 @@ export namespace WorksheetRepository {
         console.log('nextDate' + nextDate.toDateString());
         return WorksheetModel.find({ 'date': { '$gte': getDate(dateOfReport), '$lt': getDate(nextDate) } }).exec();
     }
+    export function getDefinitions() {
+        return WorksheetDefinitionModel.find().exec();
+    }
 
     function getDate(date: Date) {
         return new Date(date.getFullYear(), date.getMonth(), date.getDate());
     }
 
     function initSchema() {
-        WorksheetModel = mongoose.model('WorksheetResult', new mongoose.Schema(WorksheetSchema.worksheetResult));
+        WorksheetModel = mongoose.model('WorksheetResult',
+            new mongoose.Schema(WorksheetSchema.worksheetResult),
+            'worksheetresults');
+        WorksheetDefinitionModel = mongoose.model('WorksheetDefinition',
+            new mongoose.Schema(WorksheetSchema.worksheetDefinition),
+            'worksheetdefinition');
     }
 
 }

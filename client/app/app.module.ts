@@ -31,6 +31,8 @@ import { ReportDashboardComponent } from './report-dashboard/report-dashboard.co
 import { SingleReportComponent } from './single-report/single-report.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { PageTitleComponent } from './page-title/page-title.component';
+import { RecordAnswerComponent } from './record-answer/record-answer.component';
+import { SingleAnswerComponent } from './single-answer/single-answer.component';
 
 @NgModule({
   imports: [
@@ -65,7 +67,11 @@ import { PageTitleComponent } from './page-title/page-title.component';
 
     PageHeaderComponent,
 
-    PageTitleComponent
+    PageTitleComponent,
+
+    RecordAnswerComponent,
+
+    SingleAnswerComponent
 
     // Add polymer elements here
     // e.g. PolymerElement("paper-card"),

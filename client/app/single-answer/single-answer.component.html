@@ -1,0 +1,6 @@
+<div class ="answer-mark" (click)="toggleAnswer($event)">
+  <div *ngIf ="hasAnswer()">
+  <i *ngIf ="answers[index]" class=" correct-answer fa fa-3x fa-check" aria-hidden="true"></i>
+  <i *ngIf ="!answers[index]" class="wrong-answer fa fa-3x fa-times" aria-hidden="true"></i>
+  </div>
+</div>

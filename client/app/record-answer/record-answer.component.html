@@ -1,0 +1,5 @@
+<div class="answer-container">
+  <div *ngFor="let answer of answers;let i = index" class="answer">
+    <app-single-answer [index]="i" [answers]="answers"  ></app-single-answer>
+  </div>
+</div>

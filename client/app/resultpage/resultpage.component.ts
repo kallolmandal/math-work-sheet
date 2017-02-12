@@ -33,8 +33,8 @@ export class ResultpageComponent implements OnInit, AfterViewInit {
     this.worksheet.questions.forEach(element => {
       if (element.imageUrl) {
         let img = new Image();
-        let xoffset = (counter % 3) * 150 + 40;
-        let yoffset = Math.floor(counter / 3) * 150;
+        let xoffset = (counter % 4) * 150 + 40;
+        let yoffset = Math.floor(counter / 4) * 150;
         console.log('canvas-- ' + xoffset + ':' + yoffset);
         counter++;
         img.onload = function () {

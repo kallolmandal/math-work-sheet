@@ -14,4 +14,7 @@ export namespace WorksheetResultService {
     export function getResult(dayOffset: number) {
         return WorksheetRepository.get('1', dayOffset);
     }
+    export function getDefinitions() {
+        return WorksheetRepository.getDefinitions();
+    }
 }

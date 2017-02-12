@@ -20,27 +20,33 @@ export class WorksheetService extends BaseService {
         super(router);
 
     }
+    getWorksheetDefinitions() {
+        return this._http.get(this._apiUrl + '/definitions')
+            .toPromise()
+            .then(response => response.json().data as any)
+            .catch(this.errorFunction);
+    }
 
     getAllWorkSheet() {
         return [
             {
                 'name': ' Multiplication',
-                'operand1': 2,
+                'operand1': 3,
                 'operand2': 1,
                 'operation': '×',
                 'time': 300
             },
             {
                 'name': 'Addition ',
-                'operand1': 2,
-                'operand2': 2,
+                'operand1': 4,
+                'operand2': 4,
                 'operation': '+',
                 'time': 240
             },
             {
                 'name': 'Substraction',
-                'operand1': 2,
-                'operand2': 1,
+                'operand1': 3,
+                'operand2': 3,
                 'operation': '-',
                 'time': 240
             },
@@ -66,20 +72,14 @@ export class WorksheetService extends BaseService {
 
     }
     saveWorkSheet(name: string, timeTaken: number, imageDataUrl: string) {
-        // this._http.post(this._apiUrl, { 'name': name, 'data': imageDataUrl.replace('data:image/png;base64,', '') })
-        //     .toPromise()
-        //     .then(response => console.log('success'))
-        //     .catch(this.errorFunction);
-          console.log('saving image ' + imageDataUrl);
-
-            this._http.post(this._apiUrl, { 'name': name, 'timeTaken': timeTaken, 'data': imageDataUrl })
+        this._http.post(this._apiUrl, { 'name': name, 'timeTaken': timeTaken, 'data': imageDataUrl })
             .toPromise()
             .then(response => console.log('success'))
             .catch(this.errorFunction);
 
     }
     updateWorkSheet(worksheetId, score) {
-            this._http.put(this._apiUrl, { 'worksheetId': worksheetId, 'score': score })
+        this._http.put(this._apiUrl, { 'worksheetId': worksheetId, 'score': score })
             .toPromise()
             .then(response => console.log('success'))
             .catch(this.errorFunction);

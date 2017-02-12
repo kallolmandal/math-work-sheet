@@ -41,7 +41,7 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.question = changes['question'].currentValue;
     if (this.context) {
-      this.ClearText();
+      this.clearText();
       this.redraw();
     }
 
@@ -57,7 +57,6 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
   drawComparisionQuestion() {
     this.context.fillText(this.question.operand1, 80, 150);
     this.context.fillText(this.question.operand2, 220, 150);
-   // this.context.fillRect(150,80,80,80);
 
   }
   drawNormalQuestion() {
@@ -92,7 +91,7 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  GetText() {
+  _getText() {
     let component = this;
     tesseract.recognize(this.context)
       .progress(function () {
@@ -104,7 +103,7 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
         console.log(result);
       });
   }
-  ClearText() {
+  clearText() {
     this.context.clearRect(0, 0, this.context.canvas.width, this.context.canvas.height);
     this.drawQuestion();
     this.clickX = [];
@@ -112,10 +111,10 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
     this.clickDrag = [];
     this.question.imageUrl = null;
   }
-  SaveImage() {
+  _saveImage() {
     this.question.imageUrl = this.context.canvas.toDataURL();
   }
-  addClick(x, y, dragging) {
+  _addClick(x, y, dragging) {
     console.log('x:' + x + 'y:' + y);
     this.clickX.push(x);
     this.clickY.push(y);
@@ -127,7 +126,7 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
       console.log('mouse move');
       let mouseX = e.touches[0].pageX - this.myCanvas.nativeElement.offsetLeft - this.offset;
       let mouseY = e.touches[0].pageY - this.myCanvas.nativeElement.offsetTop - this.offset;
-      this.addClick(mouseX, mouseY, true);
+      this._addClick(mouseX, mouseY, true);
       this.redraw();
       e.preventDefault();
     }
@@ -144,7 +143,7 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
     this.paint = true;
     console.log('mouse down  x  ' + e.pageX);
 
-    this.addClick(mouseX, mouseY, false);
+    this._addClick(mouseX, mouseY, false);
     this.redraw();
     e.preventDefault();
   }
@@ -177,14 +176,14 @@ export class QuestionCanvasComponent implements AfterViewInit, OnChanges {
   goNext() {
     this.currentIndex++;
     this._router.navigateByUrl('/worksheet/question/' + this.currentIndex);
-    this.SaveImage();
+    this._saveImage();
 
   }
 
   goPrevious() {
     this.currentIndex--;
     this._router.navigateByUrl('/worksheet/question/' + this.currentIndex--);
-    this.SaveImage();
+    this._saveImage();
 
   }
   save() {

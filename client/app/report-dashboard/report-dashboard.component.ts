@@ -32,11 +32,16 @@ export class ReportDashboardComponent implements OnInit {
   private getWorkSheetResult() {
     this._worksheetService.getResult(this.dayOffset)
       .then(data => {
-        this.allReports = data;
+        this.allReports = data.map(function (obj) {
+          let rep = {};
+          rep['report'] = obj;
+          rep['answers'] = new Array(20);
+          return rep;
+        });
         this.display = true;
         if (this.allReports.length > 0) {
           this._pageTitleService.getpagetTitleChangeEvent().emit(new Date(this.allReports[0].date).toDateString());
-        }else{
+        } else {
           this._pageTitleService.getpagetTitleChangeEvent().emit('No Tests taken');
         }
 

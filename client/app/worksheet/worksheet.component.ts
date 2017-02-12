@@ -18,8 +18,12 @@ export class WorksheetComponent implements OnInit, AfterViewInit {
   constructor(private _worksheetService: WorksheetService, private sessionStorage: SessionStorage, private _router: Router) { }
 
   ngOnInit() {
-    this.worksheetList = this._worksheetService.getAllWorkSheet();
-    this.displayReady = true;
+    this._worksheetService.getWorksheetDefinitions()
+      .then(data => {
+        this.worksheetList = data;
+        this.displayReady = true;
+      }
+      );
   }
 
   openWorkSheet(metaData) {

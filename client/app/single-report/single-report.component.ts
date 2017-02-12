@@ -13,6 +13,7 @@ export class SingleReportComponent implements OnInit, OnChanges {
   private display = false;
   private score;
   private selectedReport;
+  private answers;
   constructor(private _worksheetService: WorksheetService,
     private _sanitizer: DomSanitizer, ) {
   }
@@ -28,8 +29,12 @@ export class SingleReportComponent implements OnInit, OnChanges {
   }
   selectReport(report) {
     this.selectedReport = report;
+
   }
   updateScore(report) {
-    this._worksheetService.updateWorkSheet(report._id, report.score);
+    this._worksheetService.updateWorkSheet(this.selectedReport.report._id, this.getScore());
+  }
+  getScore() {
+    return this.selectedReport.answers.filter(a => a).length;
   }
 }
