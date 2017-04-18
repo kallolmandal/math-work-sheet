@@ -12,7 +12,7 @@
     "clean.js": "echo does nothing yet",
     "compile": "tsc",
     "preserve": "npm run build",
-    "start": "npm run serve && ng build ",
+    "start": "npm run serve ",
     "serve": "node ./server/server.js",
     "lintserver": "tslint \"server/**/*.ts\"",
     "lintclient": "tslint \"client/**/*.ts\"",
