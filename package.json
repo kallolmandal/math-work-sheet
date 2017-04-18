@@ -11,7 +11,7 @@
     "clean": "npm run clean.js && rm -rf node_modules typings && cd server && rm -rf typings && cd .. && npm i",
     "clean.js": "echo does nothing yet",
     "compile": "tsc",
-    "preserve": "npm run build",
+    "preserve": "",
     "start": "npm run serve ",
     "serve": "node ./server/server.js",
     "lintserver": "tslint \"server/**/*.ts\"",
